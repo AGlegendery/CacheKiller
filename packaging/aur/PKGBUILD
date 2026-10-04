@@ -1,0 +1,34 @@
+# Maintainer: AG_legend <arashghasemabadi600 at gmail dot com>
+pkgname=cachekiller-bin
+_pkgname=cachekiller
+pkgver=9.0.0
+pkgrel=1
+pkgdesc='Fast, accurate TUI cache cleaner — parallel scanner, exact sizes, safe deletion'
+arch=('x86_64')
+url='https://github.com/AGlegendery/CacheKiller'
+license=('MIT')
+provides=("$_pkgname")
+conflicts=("$_pkgname")
+# Fully static (musl) binary: no runtime dependencies.
+depends=()
+options=('!strip' '!debug')
+source=("LICENSE-$pkgver::https://raw.githubusercontent.com/AGlegendery/CacheKiller/v$pkgver/LICENSE")
+source_x86_64=("$_pkgname-$pkgver-$CARCH::$url/releases/download/v$pkgver/$_pkgname-linux-$CARCH")
+sha256sums=('2dc852b54fe975a7c87afa025a6be7a0515f7dec09200cdcf1db7d087db82dae')
+sha256sums_x86_64=('8f7da113932ed80d6d312b257b6853076dc0f179434b0a8fb3ab9b79de5287c9')
+
+package() {
+    install -Dm755 "$_pkgname-$pkgver-$CARCH" "$pkgdir/usr/bin/$_pkgname"
+    install -Dm644 "LICENSE-$pkgver" "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
+    install -Dm644 /dev/stdin "$pkgdir/usr/share/applications/$_pkgname.desktop" <<DESKTOP
+[Desktop Entry]
+Type=Application
+Name=CacheKiller
+Comment=Fast, accurate cache cleaner
+Exec=$_pkgname
+Icon=user-trash-full
+Terminal=true
+Categories=System;Filesystem;
+Keywords=cache;clean;junk;disk;
+DESKTOP
+}

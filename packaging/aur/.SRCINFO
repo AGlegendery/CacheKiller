@@ -1,0 +1,17 @@
+pkgbase = cachekiller-bin
+	pkgdesc = Fast, accurate TUI cache cleaner — parallel scanner, exact sizes, safe deletion
+	pkgver = 9.0.0
+	pkgrel = 1
+	url = https://github.com/AGlegendery/CacheKiller
+	arch = x86_64
+	license = MIT
+	provides = cachekiller
+	conflicts = cachekiller
+	options = !strip
+	options = !debug
+	source = LICENSE-9.0.0::https://raw.githubusercontent.com/AGlegendery/CacheKiller/v9.0.0/LICENSE
+	sha256sums = 2dc852b54fe975a7c87afa025a6be7a0515f7dec09200cdcf1db7d087db82dae
+	source_x86_64 = cachekiller-9.0.0-x86_64::https://github.com/AGlegendery/CacheKiller/releases/download/v9.0.0/cachekiller-linux-x86_64
+	sha256sums_x86_64 = 8f7da113932ed80d6d312b257b6853076dc0f179434b0a8fb3ab9b79de5287c9
+
+pkgname = cachekiller-bin

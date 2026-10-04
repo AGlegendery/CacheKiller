@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=CacheKiller
+Comment=Fast, accurate cache cleaner — double-click to run
+Exec=sh -c 'exec "$(dirname "$1")/cachekiller.sh"' sh %k
+Icon=user-trash-full
+Terminal=true
+Categories=System;Filesystem;
